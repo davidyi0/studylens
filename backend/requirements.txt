@@ -1,0 +1,17 @@
+# --- Web framework (M0) ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# --- Config (M0) ---
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# --- Postgres / ORM (M0 connection check; models land in M1) ---
+sqlalchemy==2.0.35
+psycopg[binary]==3.2.3
+
+# --- Vector DB client (M0 connection check; used for real in M3/M4) ---
+chromadb==0.5.5
+
+# --- Redis client (present now, used in Phase 3) ---
+redis==5.0.8
