@@ -1,0 +1,23 @@
+# Keep build context lean: nothing here gets copied by `COPY . .`,
+# which speeds builds and avoids cache busts on unrelated changes.
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Secrets / local env (Compose injects env via env_file, not the image)
+.env
+.env.local
+
+# Local document storage (Phase 1 LocalStorageService)
+storage/
+
+# VCS / IDE / OS
+.git/
+.gitignore
+.idea/
+.vscode/
+.DS_Store
