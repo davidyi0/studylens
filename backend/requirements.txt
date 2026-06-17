@@ -10,6 +10,9 @@ pydantic-settings==2.5.2
 sqlalchemy==2.0.35
 psycopg[binary]==3.2.3
 
+# --- Migrations (M1) ---
+alembic==1.13.2
+
 # --- Vector DB client (M0 connection check; used for real in M3/M4) ---
 chromadb==0.5.5
 

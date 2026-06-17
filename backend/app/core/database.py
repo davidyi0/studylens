@@ -7,7 +7,7 @@ Milestone 1; for M0 this just gives `/health` a connection to ping.
 from collections.abc import Generator
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 from app.core.config import settings
 
@@ -16,6 +16,12 @@ from app.core.config import settings
 engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
 
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+
+
+class Base(DeclarativeBase):
+    """Declarative base for all ORM models. Lives here (next to the engine) so
+    models import `Base` and Alembic imports both without a circular dependency."""
+
 
 
 def get_db() -> Generator[Session, None, None]:
